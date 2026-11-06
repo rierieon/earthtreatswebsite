@@ -1,262 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EarthTreats — Download Official Android App</title>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10251B">
+  <meta name="description" content="EarthTreats makes campus recycling rewarding. Recycle, earn points, and redeem real rewards.">
+  <title>EarthTreats — Small Actions. Greener Futures.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #FAFBF9;
-      color: #1F2923;
+    :root {
+      --forest: #10251B;
+      --green: #285C3B;
+      --lime: #C9ED91;
+      --cream: #F6F7F1;
+      --white: #FFFFFF;
+      --muted: #78847A;
+      --border: #E6EAE2;
     }
-    .forest-bg {
-      background: linear-gradient(145deg, #1C3819 0%, #2D5A27 60%, #3D7835 100%);
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--forest); overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .container { width: min(1120px, 90%); margin: auto; }
+    header { width: 100%; position: absolute; top: 0; left: 0; z-index: 10; padding: 25px 0; }
+    nav { display: flex; justify-content: space-between; align-items: center; }
+    .brand { display: flex; align-items: center; gap: 11px; color: white; }
+    .brand-icon { width: 42px; height: 42px; border-radius: 14px; background: var(--lime); color: var(--forest); display: grid; place-items: center; font-size: 22px; }
+    .brand-name { font-family: 'Manrope', sans-serif; font-size: 20px; font-weight: 800; letter-spacing: -0.8px; }
+    .brand-caption { font-size: 9px; letter-spacing: 2px; opacity: .65; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 32px; color: rgba(255,255,255,.75); font-size: 13px; font-weight: 600; }
+    .nav-links a:hover { color: var(--lime); }
+    .nav-download { background: var(--lime); color: var(--forest); padding: 12px 19px; border-radius: 50px; font-weight: 700; transition: .2s; }
+    .nav-download:hover { background: white; transform: translateY(-2px); }
+    .hero { background: radial-gradient(ellipse at 80% 20%, rgba(99,148,89,.22), transparent 40%), linear-gradient(135deg, #10251B, #1B3D2A); color: white; min-height: 680px; display: flex; align-items: center; padding: 150px 0 100px; position: relative; overflow: hidden; }
+    .hero::before { content: ""; position: absolute; width: 500px; height: 500px; border: 1px solid rgba(255,255,255,.07); border-radius: 50%; right: -130px; bottom: -250px; box-shadow: 0 0 0 70px rgba(255,255,255,.025), 0 0 0 140px rgba(255,255,255,.02); }
+    .hero-content { position: relative; z-index: 1; max-width: 750px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; padding: 9px 15px; border: 1px solid rgba(201,237,145,.25); border-radius: 50px; color: var(--lime); font-size: 11px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; margin-bottom: 28px; }
+    .eyebrow span { width: 7px; height: 7px; border-radius: 50%; background: var(--lime); }
+    h1 { font-family: 'Manrope', sans-serif; font-size: clamp(48px, 7vw, 82px); line-height: 1.06; letter-spacing: -5px; font-weight: 800; max-width: 800px; }
+    h1 span { color: var(--lime); }
+    .hero-description { max-width: 520px; color: rgba(255,255,255,.65); line-height: 1.8; font-size: 15px; margin: 26px 0 35px; }
+    .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; }
+    .primary-button { display: inline-flex; align-items: center; gap: 12px; background: var(--lime); color: var(--forest); padding: 17px 25px; border-radius: 12px; font-weight: 800; font-size: 14px; transition: .25s; }
+    .primary-button:hover { background: white; transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,.2); }
+    .secondary-button { color: white; padding: 16px 22px; border: 1px solid rgba(255,255,255,.2); border-radius: 12px; font-size: 14px; font-weight: 600; transition: .2s; }
+    .secondary-button:hover { border-color: var(--lime); color: var(--lime); }
+    .hero-note { margin-top: 20px; font-size: 11px; color: rgba(255,255,255,.45); }
+    .intro-strip { background: var(--lime); padding: 22px 0; }
+    .intro-strip-content { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .intro-strip strong { font-family: 'Manrope', sans-serif; font-size: 17px; font-weight: 800; }
+    .intro-strip p { color: #40583A; font-size: 12px; }
+    section { padding: 105px 0; }
+    .section-label { color: var(--green); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; }
+    .section-heading { font-family: 'Manrope', sans-serif; font-size: clamp(32px, 4vw, 48px); line-height: 1.15; letter-spacing: -2px; font-weight: 800; }
+    .section-description { color: var(--muted); font-size: 14px; line-height: 1.8; max-width: 550px; margin-top: 17px; }
+    .features { background: var(--cream); }
+    .features-header { margin-bottom: 48px; }
+    .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .feature-card { background: white; border: 1px solid var(--border); padding: 30px; border-radius: 20px; transition: .25s; }
+    .feature-card:hover { transform: translateY(-6px); box-shadow: 0 15px 40px rgba(16,37,27,.07); }
+    .feature-icon { width: 53px; height: 53px; display: grid; place-items: center; background: #EDF4E8; border-radius: 16px; font-size: 24px; margin-bottom: 25px; }
+    .feature-card h3 { font-family: 'Manrope', sans-serif; font-size: 18px; font-weight: 800; margin-bottom: 12px; }
+    .feature-card p { color: var(--muted); font-size: 13px; line-height: 1.8; }
+    .how-it-works { background: white; }
+    .steps-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: 80px; align-items: center; }
+    .steps { margin-top: 35px; }
+    .step { display: flex; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--border); }
+    .step-number { width: 38px; height: 38px; flex-shrink: 0; display: grid; place-items: center; border-radius: 12px; background: #EDF4E8; color: var(--green); font-weight: 800; font-size: 13px; }
+    .step h3 { font-family: 'Manrope', sans-serif; font-size: 15px; margin-bottom: 7px; }
+    .step p { color: var(--muted); font-size: 12px; line-height: 1.7; }
+    .visual-card { min-height: 410px; background: radial-gradient(circle at 80% 20%, rgba(201,237,145,.18), transparent 35%), linear-gradient(145deg, #183C29, #10251B); border-radius: 28px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; position: relative; overflow: hidden; }
+    .visual-card::before, .visual-card::after { content: ""; position: absolute; width: 260px; height: 260px; border: 1px solid rgba(255,255,255,.08); border-radius: 50%; }
+    .visual-card::after { width: 380px; height: 380px; }
+    .visual-symbol { width: 110px; height: 110px; display: grid; place-items: center; background: var(--lime); color: var(--forest); font-size: 52px; border-radius: 35px; transform: rotate(-8deg); box-shadow: 0 20px 50px rgba(0,0,0,.2); z-index: 1; }
+    .visual-caption { color: white; text-align: center; margin-top: 30px; z-index: 1; }
+    .visual-caption h3 { font-family: 'Manrope', sans-serif; font-size: 23px; margin-bottom: 9px; }
+    .visual-caption p { color: rgba(255,255,255,.6); font-size: 12px; line-height: 1.7; }
+    .about { background: #EAF0E5; }
+    .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+    .about-box { background: white; padding: 35px; border-radius: 22px; }
+    .about-box h3 { font-family: 'Manrope', sans-serif; font-size: 20px; margin-bottom: 15px; }
+    .about-box p { color: var(--muted); font-size: 13px; line-height: 1.9; }
+    .about-tags { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 23px; }
+    .about-tags span { background: #EDF4E8; color: var(--green); padding: 9px 13px; border-radius: 50px; font-size: 10px; font-weight: 700; }
+    .download-section { background: var(--forest); color: white; text-align: center; padding: 100px 0; position: relative; overflow: hidden; }
+    .download-section::before { content: ""; position: absolute; width: 400px; height: 400px; border-radius: 50%; border: 1px solid rgba(255,255,255,.07); left: -200px; top: -200px; }
+    .download-section .container { position: relative; z-index: 1; }
+    .download-section .section-label { color: var(--lime); }
+    .download-section .section-heading { max-width: 650px; margin: auto; }
+    .download-section .section-description { color: rgba(255,255,255,.6); margin: 18px auto 30px; }
+    .download-section .primary-button { justify-content: center; }
+    .owners { background: var(--cream); }
+    .owners-header { text-align: center; margin-bottom: 45px; }
+    .owners-header .section-description { margin-left: auto; margin-right: auto; }
+    .owner-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .owner-card { background: white; border: 1px solid var(--border); border-radius: 20px; padding: 30px 20px; text-align: center; transition: .2s; }
+    .owner-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(16,37,27,.06); }
+    .owner-avatar { width: 66px; height: 66px; margin: 0 auto 18px; border-radius: 22px; background: #EAF2E5; color: var(--green); display: grid; place-items: center; font-family: 'Manrope', sans-serif; font-size: 21px; font-weight: 800; }
+    .owner-card h3 { font-family: 'Manrope', sans-serif; font-size: 14px; margin-bottom: 7px; }
+    .owner-role { color: var(--green); font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+    .owner-email { display: block; margin-top: 17px; padding-top: 15px; border-top: 1px solid var(--border); color: var(--muted); font-size: 11px; overflow-wrap: anywhere; }
+    .owner-email:hover { color: var(--green); }
+    footer { background: #0B1B13; color: white; padding: 35px 0; }
+    .footer-content { display: flex; justify-content: space-between; align-items: center; gap: 25px; flex-wrap: wrap; }
+    .footer-text { color: rgba(255,255,255,.45); font-size: 11px; margin-top: 8px; }
+    .footer-links { display: flex; gap: 23px; flex-wrap: wrap; font-size: 11px; color: rgba(255,255,255,.65); }
+    .footer-links a:hover { color: var(--lime); }
+    @media (max-width: 760px) {
+      header { padding: 18px 0; }
+      .nav-links { gap: 15px; }
+      .nav-links a:not(.nav-download) { display: none; }
+      .hero { min-height: 620px; padding: 140px 0 90px; }
+      h1 { letter-spacing: -3px; }
+      section { padding: 75px 0; }
+      .feature-grid, .owner-grid { grid-template-columns: 1fr; }
+      .steps-layout, .about-layout { grid-template-columns: 1fr; gap: 35px; }
+      .visual-card { min-height: 330px; }
+      .intro-strip-content { flex-direction: column; align-items: flex-start; gap: 7px; }
+      .footer-content { flex-direction: column; align-items: flex-start; }
     }
-    .pulse-glow {
-      box-shadow: 0 0 0 0 rgba(45, 90, 39, 0.45);
-      animation: pulse 2.2s infinite;
-    }
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(45, 90, 39, 0.45); }
-      70% { box-shadow: 0 0 0 16px rgba(45, 90, 39, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(45, 90, 39, 0); }
+    @media (max-width: 420px) {
+      .brand-name { font-size: 17px; }
+      .nav-download { padding: 10px 14px; font-size: 11px; }
+      .hero-actions { align-items: stretch; flex-direction: column; }
+      .hero-actions a { justify-content: center; }
+      .section-heading { letter-spacing: -1.5px; }
     }
   </style>
 </head>
-<body class="antialiased selection:bg-[#2D5A27] selection:text-white flex flex-col min-h-screen">
-
-  <!-- ================= TOP HEADER ================= -->
-  <header class="bg-white border-b border-[#E7ECE5] sticky top-0 z-40">
-    <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
-      <!-- App Brand -->
-      <div class="flex items-center space-x-3">
-        <div class="w-9 h-9 rounded-xl bg-[#2D5A27] flex items-center justify-center text-white text-lg shadow-sm">
-          🌱
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="brand">
+          <div class="brand-icon">✳</div>
+          <div>
+            <div class="brand-name">EarthTreats</div>
+            <div class="brand-caption">Campus Sustainability</div>
+          </div>
+        </a>
+        <div class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#about">About</a>
+          <a href="#owners">Our Team</a>
+          <a href="#download" class="nav-download">Get the App ↗</a>
         </div>
-        <div>
-          <span class="text-lg font-extrabold tracking-tight text-[#1C3819]">EarthTreats</span>
-          <span class="block text-[9px] uppercase tracking-widest font-bold text-[#4B7C44]">Campus Recycling Rewards</span>
-        </div>
-      </div>
-
-      <!-- Quick Jump Links -->
-      <nav class="flex items-center space-x-5 text-xs font-semibold text-gray-600">
-        <a href="#about" class="hover:text-[#2D5A27] transition-colors">About</a>
-        <a href="#owners" class="hover:text-[#2D5A27] transition-colors">Owners</a>
-        <a href="#contact" class="hover:text-[#2D5A27] transition-colors">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="flex-grow">
-    <!-- ================= HERO & DOWNLOAD ================= -->
-    <section class="max-w-4xl mx-auto px-6 pt-12 pb-14 text-center">
-
-      <!-- Verified Badge -->
-      <div class="inline-flex items-center space-x-2 bg-[#E8F0E6] text-[#2D5A27] px-3.5 py-1.5 rounded-full text-xs font-bold mb-6">
-        <span>✓ Official Release</span>
-        <span>•</span>
-        <span>Direct Android APK</span>
-      </div>
-
-      <!-- App Title -->
-      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#1C3819] leading-tight mb-4">
-        Recycle Smart. <br class="hidden sm:inline" />
-        <span class="text-[#2D5A27]">Earn Real Campus Rewards.</span>
-      </h1>
-
-      <!-- Simple Introduction -->
-      <p class="text-sm sm:text-base text-gray-600 max-w-xl mx-auto mb-8 leading-relaxed">
-        EarthTreats is the official Android app for our campus recycling system. Scan recycling station QR codes, track verified bins on our live map, and redeem reward points for campus store items and eco-perks.
-      </p>
-
-      <!-- BIG DOWNLOAD BUTTON (LINKED TO MEDIAFIRE APK) -->
-      <div class="max-w-xs mx-auto mb-6">
-        <a id="main-download-btn" href="http://www.mediafire.com/file/doar4qnql8fx77t/EarthTreats_v9.0.apk" target="_blank" class="pulse-glow w-full flex items-center justify-center space-x-3 bg-[#2D5A27] hover:bg-[#23471E] text-white py-4 px-6 rounded-2xl font-bold text-base shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">
-          <svg class="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-          </svg>
-          <div class="text-left">
-            <div class="text-[10px] uppercase tracking-wider text-emerald-200 font-semibold leading-none">Tap to Download</div>
-            <div class="text-sm sm:text-base font-extrabold leading-tight">EarthTreats_v9.0.apk</div>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="eyebrow"><span></span>A smarter way to recycle</div>
+          <h1>Small actions.<br><span>Greener futures.</span></h1>
+          <p class="hero-description">
+            Make every bottle count. EarthTreats turns everyday recycling
+            into meaningful rewards, helping build a cleaner and more
+            sustainable campus, one action at a time.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-button" href="http://www.mediafire.com/file/doar4qnql8fx77t/EarthTreats_v9.0.apk" target="_blank" rel="noopener noreferrer">Download the App <span>↗</span></a>
+            <a class="secondary-button" href="#features">Discover EarthTreats ↓</a>
           </div>
-        </a>
+          <p class="hero-note">Android 8.0 and above · Version 9.0</p>
+        </div>
       </div>
-
-      <p class="text-xs text-gray-400 font-medium">Compatible with Android 8.0 and above</p>
     </section>
 
-    <!-- ================= 3-STEP INSTALLATION ================= -->
-    <section class="max-w-4xl mx-auto px-6 pb-14">
-      <div class="bg-white border border-[#E7ECE5] rounded-3xl p-6 sm:p-8 shadow-sm">
-        <h2 class="text-sm font-bold uppercase tracking-wider text-[#2D5A27] mb-4 text-center">
-          How to Install after Downloading
-        </h2>
+    <div class="intro-strip">
+      <div class="container intro-strip-content">
+        <strong>Good habits deserve good rewards.</strong>
+        <p>Recycle responsibly. Collect points. Make an impact.</p>
+      </div>
+    </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div class="bg-[#FAFBF9] border border-[#E7ECE5] p-4 rounded-2xl">
-            <div class="w-7 h-7 bg-[#E8F0E6] text-[#2D5A27] rounded-full flex items-center justify-center font-bold text-xs mb-2">1</div>
-            <h3 class="font-bold text-xs text-gray-900 mb-1">Download APK</h3>
-            <p class="text-[11px] text-gray-500 leading-normal">
-              Tap the download button above to go to the MediaFire download page. Tap <strong>Download</strong>. If Chrome prompts <em>"File might be harmful"</em>, tap <strong>Download anyway</strong>.
-            </p>
+    <section class="features" id="features">
+      <div class="container">
+        <div class="features-header">
+          <div class="section-label">What makes us different</div>
+          <h2 class="section-heading">Recycling, made<br>more rewarding.</h2>
+          <p class="section-description">EarthTreats combines technology and sustainability to make recycling easier, more engaging, and more rewarding.</p>
+        </div>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon">⌗</div>
+            <h3>Smart QR Verification</h3>
+            <p>Scan recycling station QR codes to validate your recycling activity and earn points through the app.</p>
           </div>
-
-          <div class="bg-[#FAFBF9] border border-[#E7ECE5] p-4 rounded-2xl">
-            <div class="w-7 h-7 bg-[#E8F0E6] text-[#2D5A27] rounded-full flex items-center justify-center font-bold text-xs mb-2">2</div>
-            <h3 class="font-bold text-xs text-gray-900 mb-1">Open Download</h3>
-            <p class="text-[11px] text-gray-500 leading-normal">
-              Tap the notification banner or open <strong>EarthTreats_v9.0.apk</strong> from your phone's <strong>Downloads</strong> folder.
-            </p>
+          <div class="feature-card">
+            <div class="feature-icon">⌖</div>
+            <h3>Live Station Finder</h3>
+            <p>Find verified recycling stations through the app's GPS-powered station map.</p>
           </div>
-
-          <div class="bg-[#FAFBF9] border border-[#E7ECE5] p-4 rounded-2xl">
-            <div class="w-7 h-7 bg-[#E8F0E6] text-[#2D5A27] rounded-full flex items-center justify-center font-bold text-xs mb-2">3</div>
-            <h3 class="font-bold text-xs text-gray-900 mb-1">Allow & Launch</h3>
-            <p class="text-[11px] text-gray-500 leading-normal">
-              Toggle <strong>"Allow from this source"</strong> if prompted by Android settings, tap <strong>Install</strong>, and start recycling!
-            </p>
+          <div class="feature-card">
+            <div class="feature-icon">✳</div>
+            <h3>Real Rewards</h3>
+            <p>Turn your collected points into rewards and redeem available items through the in-app reward shop.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= ABOUT US ================= -->
-    <section id="about" class="max-w-4xl mx-auto px-6 pb-14">
-      <div class="bg-[#E8F0E6]/50 border border-[#D5E3D2] rounded-3xl p-6 sm:p-8">
-        <h2 class="text-xs font-extrabold uppercase tracking-widest text-[#2D5A27] mb-2">About EarthTreats</h2>
-        <h3 class="text-xl font-bold text-[#1C3819] mb-3">Built for Campus Sustainability</h3>
-        <p class="text-xs sm:text-sm text-gray-700 leading-relaxed mb-4">
-          EarthTreats is an Android-exclusive recycling platform designed to motivate students and staff to recycle paper, plastic bottles, and aluminum cans. Unlike static recycling initiatives, EarthTreats integrates live GPS station mapping, QR scan validation, and an in-app reward point shop to deliver a seamless eco-conscious experience.
-        </p>
-        <div class="flex flex-wrap gap-2 text-xs font-semibold text-[#2D5A27]">
-          <span class="bg-white px-3 py-1 rounded-full border border-[#D5E3D2]">🌱 Real-time QR Verification</span>
-          <span class="bg-white px-3 py-1 rounded-full border border-[#D5E3D2]">📍 Live GPS Station Finder</span>
-          <span class="bg-white px-3 py-1 rounded-full border border-[#D5E3D2]">🎁 Redeemable Store Points</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= OWNERS SECTION ================= -->
-    <section id="owners" class="max-w-4xl mx-auto px-6 pb-14">
-      <div class="text-center mb-8">
-        <h2 class="text-xs font-extrabold uppercase tracking-widest text-[#2D5A27]">Leadership</h2>
-        <h3 class="text-2xl font-extrabold text-[#1C3819] mt-1">App Owners</h3>
-        <p class="text-xs text-gray-500 mt-1">The creators and administrators behind EarthTreats.</p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <!-- Owner 1: Richard J Dioso -->
-        <div class="bg-white border border-[#E7ECE5] p-6 rounded-3xl text-center shadow-sm">
-          <div class="w-16 h-16 rounded-full bg-[#E8F0E6] text-[#2D5A27] font-extrabold text-xl flex items-center justify-center mx-auto mb-4 border border-[#D5E3D2]">
-            RD
-          </div>
-          <h4 class="font-extrabold text-sm text-[#1C3819]">Richard J Dioso</h4>
-          <span class="inline-block text-[11px] font-semibold text-[#2D5A27] bg-[#E8F0E6] px-2.5 py-0.5 rounded-full mt-1">Owner</span>
-          <div class="mt-4 pt-4 border-t border-gray-100">
-            <a href="mailto:richarddioso21@gmail.com" class="text-xs text-gray-600 hover:text-[#2D5A27] font-medium break-all block">
-              richarddioso21@gmail.com
-            </a>
+    <section class="how-it-works">
+      <div class="container steps-layout">
+        <div>
+          <div class="section-label">Simple by design</div>
+          <h2 class="section-heading">Three steps.<br>One better habit.</h2>
+          <p class="section-description">Getting started with EarthTreats is simple. Turn your everyday recycling into something that gives back.</p>
+          <div class="steps">
+            <div class="step">
+              <div class="step-number">01</div>
+              <div><h3>Find a recycling station</h3><p>Locate a verified station using the live map.</p></div>
+            </div>
+            <div class="step">
+              <div class="step-number">02</div>
+              <div><h3>Scan and recycle</h3><p>Use the station's QR code to validate your activity.</p></div>
+            </div>
+            <div class="step">
+              <div class="step-number">03</div>
+              <div><h3>Earn and redeem</h3><p>Collect points and exchange them for available rewards.</p></div>
+            </div>
           </div>
         </div>
-
-        <!-- Owner 2: Ethan Josh F Rivadenera -->
-        <div class="bg-white border border-[#E7ECE5] p-6 rounded-3xl text-center shadow-sm">
-          <div class="w-16 h-16 rounded-full bg-[#E8F0E6] text-[#2D5A27] font-extrabold text-xl flex items-center justify-center mx-auto mb-4 border border-[#D5E3D2]">
-            ER
-          </div>
-          <h4 class="font-extrabold text-sm text-[#1C3819]">Ethan Josh F Rivadenera</h4>
-          <span class="inline-block text-[11px] font-semibold text-[#2D5A27] bg-[#E8F0E6] px-2.5 py-0.5 rounded-full mt-1">Owner</span>
-          <div class="mt-4 pt-4 border-t border-gray-100">
-            <a href="mailto:ethanjosh0715@gmail.com" class="text-xs text-gray-600 hover:text-[#2D5A27] font-medium break-all block">
-              ethanjosh0715@gmail.com
-            </a>
-          </div>
-        </div>
-
-        <!-- Owner 3: Clareon Eurie D. Ogoy -->
-        <div class="bg-white border border-[#E7ECE5] p-6 rounded-3xl text-center shadow-sm">
-          <div class="w-16 h-16 rounded-full bg-[#E8F0E6] text-[#2D5A27] font-extrabold text-xl flex items-center justify-center mx-auto mb-4 border border-[#D5E3D2]">
-            CO
-          </div>
-          <h4 class="font-extrabold text-sm text-[#1C3819]">Clareon Eurie D. Ogoy</h4>
-          <span class="inline-block text-[11px] font-semibold text-[#2D5A27] bg-[#E8F0E6] px-2.5 py-0.5 rounded-full mt-1">Owner</span>
-          <div class="mt-4 pt-4 border-t border-gray-100">
-            <a href="mailto:ogoyclareoneurie2@gmail.com" class="text-xs text-gray-600 hover:text-[#2D5A27] font-medium break-all block">
-              ogoyclareoneurie2@gmail.com
-            </a>
+        <div class="visual-card">
+          <div class="visual-symbol">✳</div>
+          <div class="visual-caption">
+            <h3>Every action matters.</h3>
+            <p>A cleaner campus starts with the choices<br>we make every day.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= CONTACT US ================= -->
-    <section id="contact" class="max-w-4xl mx-auto px-6 pb-16">
-      <div class="bg-white border border-[#E7ECE5] rounded-3xl p-6 sm:p-8 shadow-sm">
-        <div class="text-center max-w-md mx-auto mb-8">
-          <h2 class="text-xs font-extrabold uppercase tracking-widest text-[#2D5A27]">Support & Inquiries</h2>
-          <h3 class="text-xl font-extrabold text-[#1C3819] mt-1">Contact Us</h3>
-          <p class="text-xs text-gray-500 mt-1">For station partnerships, feedback, or app support, reach out directly to the owners below:</p>
+    <section class="about" id="about">
+      <div class="container about-layout">
+        <div>
+          <div class="section-label">Our purpose</div>
+          <h2 class="section-heading">More than just<br>a recycling app.</h2>
+          <p class="section-description">We believe sustainability should be part of everyday campus life. EarthTreats was designed to encourage students and staff to make environmentally responsible choices through a rewarding digital experience.</p>
         </div>
+        <div class="about-box">
+          <h3>Built for a greener campus.</h3>
+          <p>EarthTreats is an Android-exclusive recycling platform designed to encourage the collection and proper disposal of recyclable materials such as paper, plastic bottles, and aluminum cans.</p>
+          <div class="about-tags">
+            <span>QR Verification</span>
+            <span>GPS Mapping</span>
+            <span>Reward Points</span>
+            <span>Campus Sustainability</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          <!-- Contact Box 1 -->
-          <a href="mailto:richarddioso21@gmail.com" class="flex items-center p-3.5 rounded-2xl bg-[#FAFBF9] border border-[#E7ECE5] hover:border-[#2D5A27] transition-colors group">
-            <div class="w-9 h-9 rounded-xl bg-[#E8F0E6] text-[#2D5A27] flex items-center justify-center mr-3 text-sm flex-shrink-0">
-              ✉️
-            </div>
-            <div class="overflow-hidden">
-              <div class="text-[11px] font-bold text-gray-800 truncate">Richard J Dioso</div>
-              <div class="text-[10px] text-gray-500 truncate group-hover:text-[#2D5A27]">richarddioso21@gmail.com</div>
-            </div>
-          </a>
+    <section class="download-section" id="download">
+      <div class="container">
+        <div class="section-label">Start making a difference</div>
+        <h2 class="section-heading">Your next good habit<br>starts here.</h2>
+        <p class="section-description">Download EarthTreats and start turning everyday recycling into something rewarding.</p>
+        <a class="primary-button" href="http://www.mediafire.com/file/doar4qnql8fx77t/EarthTreats_v9.0.apk" target="_blank" rel="noopener noreferrer">Download EarthTreats v9.0 ↗</a>
+        <p class="hero-note">Android 8.0 and above · APK Download</p>
+      </div>
+    </section>
 
-          <!-- Contact Box 2 -->
-          <a href="mailto:ethanjosh0715@gmail.com" class="flex items-center p-3.5 rounded-2xl bg-[#FAFBF9] border border-[#E7ECE5] hover:border-[#2D5A27] transition-colors group">
-            <div class="w-9 h-9 rounded-xl bg-[#E8F0E6] text-[#2D5A27] flex items-center justify-center mr-3 text-sm flex-shrink-0">
-              ✉️
-            </div>
-            <div class="overflow-hidden">
-              <div class="text-[11px] font-bold text-gray-800 truncate">Ethan Josh F Rivadenera</div>
-              <div class="text-[10px] text-gray-500 truncate group-hover:text-[#2D5A27]">ethanjosh0715@gmail.com</div>
-            </div>
-          </a>
-
-          <!-- Contact Box 3 -->
-          <a href="mailto:ogoyclareoneurie2@gmail.com" class="flex items-center p-3.5 rounded-2xl bg-[#FAFBF9] border border-[#E7ECE5] hover:border-[#2D5A27] transition-colors group">
-            <div class="w-9 h-9 rounded-xl bg-[#E8F0E6] text-[#2D5A27] flex items-center justify-center mr-3 text-sm flex-shrink-0">
-              ✉️
-            </div>
-            <div class="overflow-hidden">
-              <div class="text-[11px] font-bold text-gray-800 truncate">Clareon Eurie D. Ogoy</div>
-              <div class="text-[10px] text-gray-500 truncate group-hover:text-[#2D5A27]">ogoyclareoneurie2@gmail.com</div>
-            </div>
-          </a>
+    <section class="owners" id="owners">
+      <div class="container">
+        <div class="owners-header">
+          <div class="section-label">The people behind the project</div>
+          <h2 class="section-heading">Meet the team.</h2>
+          <p class="section-description">The creators and administrators behind EarthTreats.</p>
+        </div>
+        <div class="owner-grid">
+          <div class="owner-card">
+            <div class="owner-avatar">RD</div>
+            <h3>Richard J Dioso</h3>
+            <div class="owner-role">Owner</div>
+            <a class="owner-email" href="mailto:richarddioso21@gmail.com">richarddioso21@gmail.com</a>
+          </div>
+          <div class="owner-card">
+            <div class="owner-avatar">ER</div>
+            <h3>Ethan Josh F Rivadenera</h3>
+            <div class="owner-role">Owner</div>
+            <a class="owner-email" href="mailto:ethanjosh0715@gmail.com">ethanjosh0715@gmail.com</a>
+          </div>
+          <div class="owner-card">
+            <div class="owner-avatar">CO</div>
+            <h3>Clareon Eurie D. Ogoy</h3>
+            <div class="owner-role">Owner</div>
+            <a class="owner-email" href="mailto:ogoyclareoneurie2@gmail.com">ogoyclareoneurie2@gmail.com</a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ================= FOOTER ================= -->
-  <footer class="bg-white border-t border-[#E7ECE5] py-6">
-    <div class="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-3">
+  <footer>
+    <div class="container footer-content">
       <div>
-        © 2026 <strong>EarthTreats</strong>. All rights reserved.
+        <a href="#" class="brand">
+          <div class="brand-icon">✳</div>
+          <div>
+            <div class="brand-name">EarthTreats</div>
+            <div class="brand-caption">Campus Sustainability</div>
+          </div>
+        </a>
+        <p class="footer-text">© 2026 EarthTreats. All rights reserved.</p>
       </div>
-      <div class="flex space-x-5">
-        <a href="#about" class="hover:text-[#2D5A27]">About</a>
-        <a href="#owners" class="hover:text-[#2D5A27]">Owners</a>
-        <a href="#contact" class="hover:text-[#2D5A27]">Contact</a>
-        <a id="footer-download-btn" href="http://www.mediafire.com/file/doar4qnql8fx77t/EarthTreats_v9.0.apk" target="_blank" class="font-bold text-[#2D5A27] hover:underline">Download APK</a>
+      <div class="footer-links">
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+        <a href="#owners">Our Team</a>
+        <a href="mailto:richarddioso21@gmail.com">Contact</a>
+        <a href="http://www.mediafire.com/file/doar4qnql8fx77t/EarthTreats_v9.0.apk" target="_blank" rel="noopener noreferrer">Download APK ↗</a>
       </div>
     </div>
   </footer>
-
 </body>
 </html>
